@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Smartorhot</title>
+  <title>SmartOrHot</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag "favicon.ico", :rel => "icon", :type => "image/ico" %>
 </head>
 <body>
+	<div class="page">
+		<header>
+		<%= link_to "Smart or HOT", root_path, :class => 'logo' %>
+		<div class="login"><strong>Welcome FIRST_NAME</strong></div>
+		<nav class="nav_menu">
+		  <ul class="dropmenu">
+		    <li><%= link_to "Home", root_path %></li>
+		    <li><%= link_to "Sign Up!", new_user_registration_path %></li>
+		    <li>
+		      <ul>
+		        <li>Item 1</li>
+		        <li>Item 2</li>
+		      </ul>
+		    </li>
+		  </ul>
+		</nav>      
+		</header>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+		<article>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		<%= yield %>
+		<div class="clear-all"></div>
+		</article>
 
-<%= yield %>
+		<div align=center>
+		<footer id="footer">&copy; Copyright Pardeep Singh & Jared Sealey 2012</footer>
+		</div>
 
+		<div id="tooltip_container">This is my tooltip.</div>
+
+		<div class="tooltip-html-source">
+			<div id="tooltip-sidebar">html <strong>content</strong>.
+				<div class="clear-all"></div>
+			</div>
+		</div>
+
+	</div>
 </body>
 </html>
