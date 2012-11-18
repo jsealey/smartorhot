@@ -2,7 +2,7 @@
 /* Created by Jared Sealey        */
 
 /* Style */
-body { font: 12px Arial; margin: 0px; padding: 0px 20px; background-color: #594D37; }
+body { font: 12px Arial; margin: 0px; padding: 0px 20px; background-color: #063540; }
 h1 { margin: 0 0 1em 0;  font-size: 1.7em; font-weight: normal; }
 h2 { margin: 0 0 .5em 0; font-size: 1.3em; }
 p { margin: 0 0 1em 0; }
@@ -35,8 +35,9 @@ footer { font-size: .9em; }
 }
 
 /* Layout */
-.page { max-width: 980px; margin: 0px auto; padding: 0px; }
-header { position: relative; height: 28px; margin: 0px; padding-top: 80px; background: url(banner.jpg) no-repeat 50% 0px; }
+.page { max-width: 980px; margin: 0px auto; padding: 0px; background: #176273;}
+/* Old Background Image: background: url(banner.jpg) no-repeat 50% 0px; */
+header { position: relative; height: 28px; margin: 0px; padding-top: 80px; background: #2A7ABC; }
 header a.logo { width: 120px; height: 70px; position: absolute; top: 15px; left: 15px; display: relative; }
 nav { background-color: rgba(0,0,0,.3); } 
 article { margin: 0px; padding: 25px; background-color: #fff; }
