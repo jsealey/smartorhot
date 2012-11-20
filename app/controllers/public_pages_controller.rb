@@ -1,7 +1,7 @@
 class PublicPagesController < ApplicationController
 	before_filter :authenticate_user!, :only => :token
 	before_filter :load_image
-	
+
 	def home
 	end
 
