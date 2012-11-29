@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+ <%= image_tag @extended_profile.avatar.url %>
+
+<p>
+  <b>First name:</b>
+  <%= @extended_profile.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @extended_profile.last_name %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @extended_profile.phone_number %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @extended_profile.date_of_birth %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @extended_profile.sex %>
+</p>
+
+
+<%= link_to 'Edit', edit_extended_profile_path(@extended_profile) %> |
+<%= link_to 'Back', extended_profiles_path %>

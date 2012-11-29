@@ -1,11 +1,12 @@
 <table>
 	<tr>
 		<td>
-			<h1>Smart or <font color=red>HOT</font></h1>
-			<%= render :partial => "photos/show" %>
+			<%= render :partial => "extended_profiles/show" %>
 		<td>
 		<td>
+			<% if not user_signed_in? %>
 			<%= render "devise/registrations/new" %>
+			<% end %>
 		</td>
 	<tr>
 </table>

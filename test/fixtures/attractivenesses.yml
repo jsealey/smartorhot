@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  references: 
+  smart_count: 1
+  hot_count: 1
+  dumb_count: 1
+  ugly_count: 1
+
+two:
+  references: 
+  smart_count: 1
+  hot_count: 1
+  dumb_count: 1
+  ugly_count: 1

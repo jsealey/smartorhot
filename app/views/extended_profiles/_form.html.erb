@@ -1,0 +1,40 @@
+<%= form_for(@extended_profile) do |f| %>
+  <% if @extended_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@extended_profile.errors.count, "error") %> prohibited this extended_profile from being saved:</h2>
+
+      <ul>
+      <% @extended_profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :ispremium %><br />
+    <%= f.check_box :ispremium %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_select :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.check_box :sex %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

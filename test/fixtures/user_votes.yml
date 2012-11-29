@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  references: 
+  candidate_user_id: 1
+  vote_type: 1
+
+two:
+  references: 
+  candidate_user_id: 1
+  vote_type: 1

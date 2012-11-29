@@ -1,0 +1,4 @@
+Upload a photo to join the <strong>fun!</strong><br />
+<%= form_for @user, :url => edit_extended_profile, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %>

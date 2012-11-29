@@ -1,0 +1,35 @@
+<h1>Listing extended_profiles</h1>
+
+<table>
+  <tr>
+    <th>References</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Phone number</th>
+    <th>Ispremium</th>
+    <th>Date of birth</th>
+    <th>Sex</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @extended_profiles.each do |extended_profile| %>
+  <tr>
+    <td><%= extended_profile.references %></td>
+    <td><%= extended_profile.first_name %></td>
+    <td><%= extended_profile.last_name %></td>
+    <td><%= extended_profile.phone_number %></td>
+    <td><%= extended_profile.ispremium %></td>
+    <td><%= extended_profile.date_of_birth %></td>
+    <td><%= extended_profile.sex %></td>
+    <td><%= link_to 'Show', extended_profile %></td>
+    <td><%= link_to 'Edit', edit_extended_profile_path(extended_profile) %></td>
+    <td><%= link_to 'Destroy', extended_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Extended profile', new_extended_profile_path %>

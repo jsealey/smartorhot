@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  references: 
+  first_name: MyString
+  last_name: MyString
+  phone_number: MyString
+  ispremium: false
+  date_of_birth: 2012-11-27
+  sex: false
+  flickr_image_id: 1
+
+two:
+  references: 
+  first_name: MyString
+  last_name: MyString
+  phone_number: MyString
+  ispremium: false
+  date_of_birth: 2012-11-27
+  sex: false
+  flickr_image_id: 1
