@@ -1,1 +1,8 @@
 <h1>Smartest and HOTTEST</h1>
+<article>
+<% @extended_profiles.each do |a| %>
+<section>
+	<%= image_tag a.avatar.url(:medium) %>
+</section>
+<% end %>
+</article>

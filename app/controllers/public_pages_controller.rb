@@ -21,4 +21,8 @@ class PublicPagesController < ApplicationController
 		@views = info.views
 		@tags = info.tags.map {|t| t.raw}
 	end
+
+	def attractive
+		@extended_profiles = ExtendedProfile.limit(10)
+	end
 end
