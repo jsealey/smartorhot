@@ -10,7 +10,7 @@
 <body>
 	<div class="page">
 		<header>
-		<%= link_to "Smart or HOT", root_path, :class => 'logo' %>
+		<%= link_to image_tag("soh.svg"), root_path(), :class => 'logo' %>
 		<div class="login">      
 		<% if user_signed_in? -%>
           <%= link_to current_user.email, edit_user_registration_path %> |
@@ -28,14 +28,9 @@
           	  </ul>
             </li>
       		<% end -%>
-      		<!--
-		    <li>
-		      <ul>
-		        <li>Item 1</li>
-		        <li>Item 2</li>
-		      </ul>
-		    </li>
-			-->
+      		<li>
+      		<%= link_to "Most Attractive", attractive_path %>
+      		</li>
 		  </ul>
 		</nav>      
 		</header>
@@ -48,7 +43,7 @@
 		</article>
 
 		<div align=center>
-		<footer id="footer">&copy; Copyright Pardeep Singh & Jared Sealey 2012</footer>
+		<footer id="footer">&copy; Copyright Pardeep Singh and Jared Sealey 2012</footer>
 		</div>
 
 		<div id="tooltip_container">This is my tooltip.</div>
