@@ -1,8 +1,10 @@
 <h1>Smartest and HOTTEST</h1>
 <article>
 <% @extended_profiles.each do |a| %>
+<% if not a.avatar.to_s.index("missing.png") %>
 <section>
 	<%= image_tag a.avatar.url(:medium) %>
 </section>
+<% end %>
 <% end %>
 </article>
