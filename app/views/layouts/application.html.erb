@@ -1,59 +1,43 @@
 <!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <title>SmartOrHot</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+	<meta charset="utf-8" />
+	
+	<!-- Uncomment to make IE8 render like IE7 -->
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  
+	<!-- Included CSS Files -->
+	<%= stylesheet_link_tag    "application" %>
+	
+	<!-- Included JS Files  -->
+	<%= javascript_include_tag "application" %>
+  
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag "favicon.ico", :rel => "icon", :type => "image/ico" %>
 </head>
 <body>
-	<div class="page">
-		<header>
-		<%= link_to image_tag("soh.svg"), root_path(), :class => 'logo' %>
-		<div class="login">      
-		<% if user_signed_in? -%>
-          <%= link_to current_user.email, edit_user_registration_path %> |
-          <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-      	<% else -%>
-          <%= link_to 'Sign In', user_session_path %>
-      	<% end -%></div>
-		<nav class="nav_menu">
-		  <ul class="dropmenu">
-		    <li><%= link_to "Home", root_path %></li>
-		    <% if user_signed_in? -%>
-		    <li><%= link_to 'My Account', edit_user_registration_path %>
-		      <ul>
-          		 <li><%= link_to 'Edit', edit_user_registration_path %></li>
-          	  </ul>
-            </li>
-      		<% end -%>
-      		<li>
-      		<%= link_to "Most Attractive", attractive_path %>
-      		</li>
-		  </ul>
-		</nav>      
-		</header>
-
-		<article>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		<%= yield %>
-		<div class="clear-all"></div>
-		</article>
-
-		<div align=center>
-		<footer id="footer">&copy; Copyright Pardeep Singh and Jared Sealey 2012</footer>
-		</div>
-
-		<div id="tooltip_container">This is my tooltip.</div>
-
-		<div class="tooltip-html-source">
-			<div id="tooltip-sidebar">html <strong>content</strong>.
-				<div class="clear-all"></div>
-			</div>
-		</div>
-
-	</div>
+	<ul class="nav-bar">
+  <li class="active"><a href="#">Nav Item 1</a></li>
+  <li class="has-flyout">
+    <a href="#">Nav Item 2</a>
+    <a href="#" class="flyout-toggle"><span> </span></a>
+    <ul class="flyout">
+      <li><a href="#">Sub Nav Item 1</a></li>
+      <li><a href="#">Sub Nav Item 2</a></li>
+      <li><a href="#">Sub Nav 3</a></li>
+      <li><a href="#">Sub Nav 4</a></li>
+      <li><a href="#">Sub Nav Item 5</a></li>
+    </ul>
+  </li>
+</ul>
+  <%= yield %>
 </body>
 </html>

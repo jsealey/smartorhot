@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery-1.7.1.min
 //= require jquery.dropmenu-1.1.4
-//= require menu
-//= require tooltip
