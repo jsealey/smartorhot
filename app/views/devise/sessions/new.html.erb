@@ -1,21 +1,34 @@
-<h2>Sign in</h2>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <table>
-  	<tr>
-  	  <td><%= f.label :email %></td>
-  	  <td><%= f.email_field :email %></td>
-  	</tr>
-  	<tr>
-  	  <td><%= f.label :password %></td>
-  	  <td><%= f.password_field :password %></td>
-  	</tr>
-  	<tr>
-  	  <td><% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%></td>
-  	  <td><%= f.submit "Sign in" %></td>
-  	</tr>
-  </table>
-<% end %>
+<article class="home">
+  <section class="home-left">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <fieldset>
+        <legend>Sign In</legend>
+        <!-- <section class="row form-size"> -->
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        <!-- </section> -->
 
-<%= render "devise/shared/links" %>
+        <%= f.label :password %></div>
+        <%= f.password_field :password %>
+        
+        <%= f.label :password_confirmation %></div>
+        <%= f.password_field :password_confirmation %>
+
+        <% if devise_mapping.rememberable? -%>
+          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+        <% end -%>
+
+        <%= f.submit "Sign In", :class => "button" %>
+
+        <section class="bottom-margin"></section>
+
+        <%= render "devise/shared/links" %>
+
+        <section class="bottom-margin"></section>
+      </fieldset>
+    <% end %>
+  </section>
+</article>
+
+
