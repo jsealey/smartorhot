@@ -1,26 +1,29 @@
 .content {
   width: 970px;
   max-width: 100%;
-  min-width: 768px;
+  min-width: 400px;
   margin: 0 auto;
 }
 
 .home-content {
-  width: inherit;
 }
 
 .home-left {
-  display: inline-block;
-  width: 49%;
+  float: left;
+  width: 570;
+  min-width: 370px;
   vertical-align: top;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .home-right {
-  display: inline-block;
-  width: 49%;
+  float: left;
+  width: 370px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .bottom-margin {
   margin-bottom: 1em;
 }
-
