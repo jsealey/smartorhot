@@ -1,0 +1,26 @@
+.content {
+  width: 1000px;
+  max-width: 100%;
+  min-width: 768px;
+  margin: 0 auto;
+}
+
+.home-content {
+  width: inherit;
+}
+
+.home-left {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+}
+
+.home-right {
+  display: inline-block;
+  width: 49%;
+}
+
+.bottom-margin {
+  margin-bottom: 1em;
+}
+

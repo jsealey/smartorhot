@@ -1,17 +1,14 @@
-<table>
-	<tr>
-		<td valign=top>
-			<% if user_signed_in? %>
+<article class="home-content">
+	<section class="home-left">
+		<% if user_signed_in? %>
 			<%= render :partial => "extended_profiles/show" %>
-			<% else %>
+		<% else %>
 			<h1> Welcome to Smart or HOT </h1>
-			<% end %>
-		<td>
-		<td style="width:25%;"></td>
-		<td valign=top>
-			<% if not user_signed_in? %>
+		<% end %>
+	</section>
+	<section class="home-right">
+		<% if not user_signed_in? %>
 			<%= render "devise/registrations/new" %>
-			<% end %>
-		</td>
-	<tr>
-</table>
+		<% end %>
+	</section>
+</article>
