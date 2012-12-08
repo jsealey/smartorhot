@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128020525) do
-
-  create_table "attractivenesses", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "smart_count", :default => 0
-    t.integer  "hot_count",   :default => 0
-    t.integer  "dumb_count",  :default => 0
-    t.integer  "ugly_count",  :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121208232253) do
 
   create_table "extended_profiles", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20121128020525) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "smart_count", :default => 0
+    t.integer  "hot_count",   :default => 0
+    t.integer  "dumb_count",  :default => 0
+    t.integer  "ugly_count",  :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "user_votes", :force => true do |t|

@@ -1,0 +1,5 @@
+<% if not user.avatar.to_s.index("missing.png") %>
+  <section>
+    <%= image_tag user.avatar.url(:medium) %>
+  </section>
+<% end %>
