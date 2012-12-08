@@ -13,7 +13,7 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+	<title><%= content_for?(:title) ? yield(:title) : "Smart or Hot" %></title>
   
 	<!-- Included CSS Files -->
 	<%= stylesheet_link_tag    "application" %>
@@ -24,20 +24,57 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<ul class="nav-bar">
-  <li class="active"><a href="#">Nav Item 1</a></li>
-  <li class="has-flyout">
-    <a href="#">Nav Item 2</a>
-    <a href="#" class="flyout-toggle"><span> </span></a>
-    <ul class="flyout">
-      <li><a href="#">Sub Nav Item 1</a></li>
-      <li><a href="#">Sub Nav Item 2</a></li>
-      <li><a href="#">Sub Nav 3</a></li>
-      <li><a href="#">Sub Nav 4</a></li>
-      <li><a href="#">Sub Nav Item 5</a></li>
-    </ul>
-  </li>
-</ul>
-  <%= yield %>
+
+  <!-- Basic Needs -->
+  <div class="row">
+  <div class="twelve columns">
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+              <%= link_to 'Smart or Hot', root_path %>
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+
+      <section>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li class="divider"></li>
+          <% if user_signed_in? %>
+          <%= nav_link 'Vote', root_path %>
+          <% else %>
+          <%= nav_link 'Home', root_path %>
+          <% end %>
+          <%= nav_link "Highest Rated", attractive_path %>
+          <li class="divider hide-for-small"></li>
+        </ul>
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="divider show-for-medium-and-up"></li>
+          <% if user_signed_in? %>
+          <li class="has-dropdown">
+            <%= link_to 'My Account', edit_user_registration_path %>
+            <ul class="dropdown">
+              <%= nav_link 'Edit', edit_user_registration_path %>
+              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          </li>
+          <% else %>
+          <%= nav_link 'Sign In', user_session_path %>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+  </div>
+</div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <article class="content">
+    <%= yield %>
+  </article>
 </body>
 </html>
