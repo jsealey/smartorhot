@@ -3,6 +3,8 @@
   max-width: 100%;
   min-width: 400px;
   margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .home-content {
@@ -19,7 +21,7 @@
 
 .home-right {
   float: left;
-  width: 370px;
+  width: 340px;
   padding-left: 15px;
   padding-right: 15px;
 }
