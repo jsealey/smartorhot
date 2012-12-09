@@ -70,8 +70,18 @@
   </div>
 </div>
   <article class="content">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <div class="alert-box success">
+        <%= notice %>
+        <a href="" class="close">&times;</a>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert-box alert">
+        <%= alert %>
+        <a href="" class="close">&times;</a>
+      </div>
+    <% end %>
     <%= yield %>
   </article>
 </body>

@@ -1,5 +1,10 @@
 <% if not user.avatar.to_s.index("missing.png") %>
-  <section>
-    <%= image_tag user.avatar.url(:medium) %>
+  <section class="row">
+    <div class="four columns"><%= link_to image_tag(user.avatar.url(:medium)), user_path(user.user_id) %></div>
+    <div class="five columns float-left">
+      <p>
+      
+    </p>
+    </div>
   </section>
 <% end %>
