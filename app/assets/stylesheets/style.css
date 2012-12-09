@@ -60,3 +60,14 @@
 /*.alert {
   color: red;
 }*/
+
+/* voting arrows */
+.voting-arrows {
+  display: inline-block;
+}
+
+.voting-arrows a {
+  margin: 0 .5em;
+  font-size: 2em;
+  color: #222;
+}

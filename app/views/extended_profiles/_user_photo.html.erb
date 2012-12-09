@@ -8,20 +8,19 @@
           <span class="meter" style="width:<%= smart_percent(user) %>%;">Smartness</span>
         </div>
 
-        <div style="display:inline-block">
-          <%= link_to "&blacktriangle;".html_safe %>
-          <%= link_to "&blacktriangledown;".html_safe %>
+        <div class="voting-arrows">
+          <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
+          <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
         </div>
-
       </h5>
 
       <h5>
         <div class="progress seven" style="display:inline-block;">
           <span class="meter" style="width:<%= hot_percent(user) %>%;">Hotness</span>
         </div>
-        <div style="display:inline-block">
-          <%= link_to "&blacktriangle;".html_safe %>
-          <%= link_to "&blacktriangledown;".html_safe %>
+        <div class="voting-arrows">
+          <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
+          <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
         </div>
       </h5>
     </div>

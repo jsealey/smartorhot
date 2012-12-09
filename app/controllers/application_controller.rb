@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :load_globals
-  helper_method :has_voted, :smart_percent, :hot_percent
+  helper_method :has_voted,:smart_percent, :hot_percent
 
   def load_globals
   	if user_signed_in?
@@ -21,18 +21,18 @@ class ApplicationController < ActionController::Base
   end
 
   def smart_percent(user)
-    data = Rating.find_by_user_id(user.user_id)
-    if data
-      return (data.smart_count/(data.smart_count+data.dumb_count))*100
+    data = Rating.find_or_create_by_user_id(user)
+    if data.smart_count > 0 or data.dumb_count > 0
+      return ((data.smart_count*100)/(data.smart_count+data.dumb_count))
     else
       return 0
     end
   end
 
   def hot_percent(user)
-    data = Rating.find_by_user_id(user)
-    if data
-      return (data.hot_count/(data.hot_count+data.ugly_count))*100
+    data = Rating.find_or_create_by_user_id(user)
+    if data.hot_count > 0 or data.ugly_count > 0
+      return ((data.hot_count*100)/(data.hot_count+data.ugly_count))
     else
       return 0
     end

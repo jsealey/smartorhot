@@ -1,7 +1,4 @@
 class ExtendedProfilesController < ApplicationController
-
-  # helper_method :smart_percent
-  # helper_method :hot_percent
   
   # GET /extended_profiles
   # GET /extended_profiles.json
@@ -83,6 +80,58 @@ class ExtendedProfilesController < ApplicationController
       format.html { redirect_to extended_profiles_url }
       format.json { head :no_content }
     end
+  end
+
+  def vote_smart
+    candidate = User.find_by_id(params[:id])
+
+    if candidate 
+      rating = Rating.find_or_create_by_user_id(candidate.id)
+      Rating.increment_counter(:smart_count, rating)
+      rating.save()
+    else
+      flash[:alert] = "User does not exist!"
+    end
+    redirect_to (attractive_url)
+  end
+
+  def vote_dumb
+    candidate = User.find_by_id(params[:id])
+
+    if candidate 
+      rating = Rating.find_or_create_by_user_id(candidate.id)
+      Rating.increment_counter(:dumb_count, rating)
+      rating.save()
+    else
+      flash[:alert] = "User does not exist!"
+    end
+    redirect_to (attractive_url)
+  end
+
+  def vote_hot
+    candidate = User.find_by_id(params[:id])
+
+    if candidate 
+      rating = Rating.find_or_create_by_user_id(candidate.id)
+      Rating.increment_counter(:hot_count, rating)
+      rating.save()
+    else
+      flash[:alert] = "User does not exist!"
+    end
+    redirect_to (attractive_url)
+  end
+
+  def vote_ugly
+    candidate = User.find_by_id(params[:id])
+
+    if candidate 
+      rating = Rating.find_or_create_by_user_id(candidate.id)
+      Rating.increment_counter(:ugly_count, rating)
+      rating.save()
+    else
+      flash[:alert] = "User does not exist!"
+    end
+    redirect_to (attractive_url)
   end
 
 end
