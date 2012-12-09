@@ -1,46 +1,35 @@
-<table>
+<table width="100%">
 <tr>
   <td valign=top>
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
-      <table>
-        <tr>
-          <td><%= f.label :email %></td>
-          <td><%= f.email_field :email %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password %></td>
-          <td><%= f.password_field :password, :autocomplete => "off" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password_confirmation %></td>
-          <td><%= f.password_field :password_confirmation %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :current_password %></td>
-          <td><%= f.password_field :current_password %></td>
-        </tr>
-        <tr><td colspan=2><%= f.submit "Update" %></td></tr>
-      </table>
+    <fieldset>
+      <legend>Edit User</legend>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password %>
+
+      <%= f.submit( :class => "button" ) %>
+      <section class="bottom-margin"></section>
+    </fieldset>
     <% end %>
-    <br />
     <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
     <%= link_to "Back", :back %>
   </td>
-  <td style="width: 25%;">
+  <td style="width: 10%;">
   </td>
   <td valign=top>
-    <h2>Edit Extended Profile</h2>
-
-  <%= image_tag @extended_profile.avatar.url(:medium) %>
-
-<%= form_for @extended_profile, :html => { :multipart => true } do |f| %>
   <% if @extended_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@extended_profile.errors.count, "error") %> prohibited this extended_profile from being saved:</h2>
-
       <ul>
       <% @extended_profile.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -48,36 +37,32 @@
       </ul>
     </div>
   <% end %>  
-  <div class="field">
-    <%= f.hidden_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br />
-    <%= f.check_box :sex %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <fieldset>
+    <legend>Edit Extended Profile</legend>
+    <%= image_tag @extended_profile.avatar.url(:medium) %>
+    <%= form_for @extended_profile, :html => { :multipart => true } do |f| %>
+      <%= f.hidden_field :user_id %>
+
+      <%= f.file_field :avatar %>
+
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+
+      <%= f.label :date_of_birth %>
+      <%= f.date_select :date_of_birth, :start_year => 1930, :end_year => 2012 %>
+
+      <%= f.label :sex %>
+      <%= f.select :sex, {"Male" => true, "Female" => false} %>
+      <%= f.submit( :class => "button" ) %>
+    <% end %>
+    <section class="bottom-margin"></section>
+  </fieldset>
 
   </td>
 </tr>
