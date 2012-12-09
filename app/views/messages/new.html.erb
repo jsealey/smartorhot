@@ -1,0 +1,19 @@
+<%= User.find_by_id(@user.id).inspect %>
+<%= User.find_by_id(@recipient.id).inspect %>
+
+<%= form_for @message, :url => user_messages_path(@user) do |f| %>
+  <fieldset>
+    <legend>Send Message</legend>
+    <%= f.hidden_field :recipient_id, :value => @recipient.id %>
+    <%= f.hidden_field :sender_id, :value => @user.id %>
+
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+
+    <%= f.label :message %>
+    <%= f.text_area :body %>
+
+    <%= submit_tag "Send", :class => "button" %>
+    <section class="bottom-margin"></section>
+  </fieldset>
+<% end %>

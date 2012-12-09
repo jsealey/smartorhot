@@ -6,7 +6,13 @@ Smartorhot::Application.routes.draw do
   match 'vote_ugly/:id' => 'extended_profiles#vote_ugly'
   
   devise_for :users
-  resources :users, :only => [:show]
+  resources :users do
+         resources :messages do
+           collection do
+             post :delete_selected
+           end
+         end
+       end
   resources :photos
   match "attractive" => "public_pages#attractive"
 	# match "show" => "photos#show",:as => :photo

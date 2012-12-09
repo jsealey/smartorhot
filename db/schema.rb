@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208232253) do
+ActiveRecord::Schema.define(:version => 20121209191305) do
 
   create_table "extended_profiles", :force => true do |t|
     t.integer  "user_id"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(:version => 20121208232253) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "ratings", :force => true do |t|
@@ -48,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20121208232253) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "username"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"

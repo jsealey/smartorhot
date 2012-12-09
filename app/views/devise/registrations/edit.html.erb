@@ -5,6 +5,10 @@
       <%= devise_error_messages! %>
     <fieldset>
       <legend>Edit User</legend>
+
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+
       <%= f.label :email %>
       <%= f.email_field :email %>
 

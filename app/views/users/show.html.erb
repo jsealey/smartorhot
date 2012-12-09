@@ -15,11 +15,7 @@
             </h5>
           </div>
 
-          <a href="#">
-          <div class="panel callout radius" align="center">
-            <h6>Send Message</h6>
-          </div>
-          </a>
+          <%= link_to '<div class="panel callout radius" align="center"><h6>Send Message</h6></div>'.html_safe, new_user_message_path(@user)%>
 
         </div>
 

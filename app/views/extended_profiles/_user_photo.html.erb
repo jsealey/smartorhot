@@ -1,24 +1,24 @@
 <% if not user.avatar.to_s.index("missing.png") %>
-  <div class="four mobile-two columns">
+  <div class="four mobile-two columns" align=center>
     <%= link_to image_tag(user.avatar.url(:medium)), user_path(user.user_id) %>
 
-    <div class="panel">
+    <div class="panel" align=center>
       <h5>
-        <div class="progress seven" style="display:inline-block;">
+        <div class="progress seven" style="display:inline-block;" align=left>
           <span class="meter" style="width:<%= smart_percent(user) %>%;">Smartness</span>
         </div>
 
-        <div class="voting-arrows">
+        <div class="voting-arrows" align=left>
           <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
           <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
         </div>
       </h5>
 
       <h5>
-        <div class="progress seven" style="display:inline-block;">
+        <div class="progress seven" style="display:inline-block;" align=left>
           <span class="meter" style="width:<%= hot_percent(user) %>%;">Hotness</span>
         </div>
-        <div class="voting-arrows">
+        <div class="voting-arrows" align=left>
           <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
           <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
         </div>
