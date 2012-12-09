@@ -15,7 +15,4 @@
 /tmp
 
 # ignore images
-*.jpg
-*.png
-*.jpeg
-*.svg
+/public/system/
