@@ -23,6 +23,9 @@ class PublicPagesController < ApplicationController
 	end
 
 	def attractive
-		@extended_profiles = ExtendedProfile.limit(10)
+		ratings = Rating.order("total_positive_votes DESC").select("user_id").limit(10).to_a
+
+		# @extended_profiles = ExtendedProfile.where(:user_id => ratings.map {|i| i.user_id })
+		@extended_profiles = ExtendedProfile.find(ratings.map {|i| i.user_id })
 	end
 end

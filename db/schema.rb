@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209191305) do
+ActiveRecord::Schema.define(:version => 20121209224211) do
 
   create_table "extended_profiles", :force => true do |t|
     t.integer  "user_id"
@@ -43,12 +43,13 @@ ActiveRecord::Schema.define(:version => 20121209191305) do
 
   create_table "ratings", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "smart_count", :default => 0
-    t.integer  "hot_count",   :default => 0
-    t.integer  "dumb_count",  :default => 0
-    t.integer  "ugly_count",  :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "smart_count",          :default => 0
+    t.integer  "hot_count",            :default => 0
+    t.integer  "dumb_count",           :default => 0
+    t.integer  "ugly_count",           :default => 0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.integer  "total_positive_votes"
   end
 
   create_table "user_votes", :force => true do |t|

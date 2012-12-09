@@ -88,6 +88,7 @@ class ExtendedProfilesController < ApplicationController
     if candidate 
       rating = Rating.find_or_create_by_user_id(candidate.id)
       Rating.increment_counter(:smart_count, rating)
+      Rating.increment_counter(:total_positive_votes, rating)
       rating.save()
     else
       flash[:alert] = "User does not exist!"
@@ -114,6 +115,7 @@ class ExtendedProfilesController < ApplicationController
     if candidate 
       rating = Rating.find_or_create_by_user_id(candidate.id)
       Rating.increment_counter(:hot_count, rating)
+      Rating.increment_counter(:total_positive_votes, rating)
       rating.save()
     else
       flash[:alert] = "User does not exist!"

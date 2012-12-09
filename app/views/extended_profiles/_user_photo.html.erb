@@ -5,23 +5,28 @@
     <div class="panel" align=center>
       <h5>
         <div class="progress seven" style="display:inline-block;" align=left>
-          <span class="meter" style="width:<%= smart_percent(user) %>%;">Smartness</span>
+          <span class="meter" style="width:<%= smart_percent(user) %>%;">Smartness(<%=Rating.find_or_create_by_user_id(user.user_id).smart_count%>)</span>
         </div>
 
-        <div class="voting-arrows" align=left>
-          <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
-          <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
-        </div>
+        <% if current_user and user.user_id != current_user.id %>
+          <div class="voting-arrows" align=left>
+            <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
+            <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
+          </div>
+        <% end %>
       </h5>
 
       <h5>
-        <div class="progress seven" style="display:inline-block;" align=left>
-          <span class="meter" style="width:<%= hot_percent(user) %>%;">Hotness</span>
+        <div class="progress seven alert" style="display:inline-block;" align=left>
+          <span class="meter" style="width:<%= hot_percent(user) %>%;">Hotness(<%=Rating.find_or_create_by_user_id(user.user_id).hot_count%>)</span>
         </div>
-        <div class="voting-arrows" align=left>
-          <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
-          <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
-        </div>
+
+        <% if current_user and user.user_id != current_user.id %>
+          <div class="voting-arrows" align=left>
+            <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
+            <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
+          </div>
+        <% end %>
       </h5>
     </div>
   </div>
