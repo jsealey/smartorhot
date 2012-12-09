@@ -1,9 +1,29 @@
 <% if not user.avatar.to_s.index("missing.png") %>
-  <section class="row">
-    <div class="four columns"><%= link_to image_tag(user.avatar.url(:medium)), user_path(user.user_id) %></div>
-    <div class="five columns float-left">
-      <p>
-      
-    </p>
+  <div class="four mobile-two columns">
+    <%= link_to image_tag(user.avatar.url(:medium)), user_path(user.user_id) %>
+
+    <div class="panel">
+      <h5>
+        <div class="progress seven" style="display:inline-block;">
+          <span class="meter" style="width:<%= smart_percent(user) %>%;">Smartness</span>
+        </div>
+
+        <div style="display:inline-block">
+          <%= link_to "&blacktriangle;".html_safe %>
+          <%= link_to "&blacktriangledown;".html_safe %>
+        </div>
+
+      </h5>
+
+      <h5>
+        <div class="progress seven" style="display:inline-block;">
+          <span class="meter" style="width:<%= hot_percent(user) %>%;">Hotness</span>
+        </div>
+        <div style="display:inline-block">
+          <%= link_to "&blacktriangle;".html_safe %>
+          <%= link_to "&blacktriangledown;".html_safe %>
+        </div>
+      </h5>
     </div>
+  </div>
 <% end %>

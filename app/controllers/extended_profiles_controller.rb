@@ -1,4 +1,8 @@
 class ExtendedProfilesController < ApplicationController
+
+  # helper_method :smart_percent
+  # helper_method :hot_percent
+  
   # GET /extended_profiles
   # GET /extended_profiles.json
   def index
@@ -80,4 +84,5 @@ class ExtendedProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end
