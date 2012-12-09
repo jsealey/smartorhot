@@ -1,6 +1,9 @@
 <h1>Smartest and HOTTEST</h1>
 <article>
+<% @count = 1 %>
 <% @extended_profiles.each do |a| %>
+  <h1><%= @count %></h1>
+  <% @count = @count + 1 %>
   <%= render "extended_profiles/user_photo", :user => a %>
 <% end %>
 </article>
