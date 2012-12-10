@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209224211) do
+ActiveRecord::Schema.define(:version => 20121210224219) do
 
   create_table "extended_profiles", :force => true do |t|
     t.integer  "user_id"
@@ -55,9 +55,12 @@ ActiveRecord::Schema.define(:version => 20121209224211) do
   create_table "user_votes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "candidate_user_id"
-    t.integer  "vote_type"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.boolean  "smart_vote"
+    t.boolean  "dumb_vote"
+    t.boolean  "hot_vote"
+    t.boolean  "ugly_vote"
   end
 
   create_table "users", :force => true do |t|

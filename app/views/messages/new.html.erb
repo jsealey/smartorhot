@@ -1,6 +1,3 @@
-<%= User.find_by_id(@user.id).inspect %>
-<%= User.find_by_id(@recipient.id).inspect %>
-
 <%= form_for @message, :url => user_messages_path(@user) do |f| %>
   <fieldset>
     <legend>Send Message</legend>

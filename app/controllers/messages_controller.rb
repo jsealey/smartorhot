@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
     @message.recipient = User.find_by_id(params[:message][:recipient_id])
 
     if @message.save
-      flash[:notice] = @message.subject.to_s #"Message Sent"
+      flash[:notice] = "Message Sent"
       redirect_to user_messages_path(@user)
     else
       render :action => :new
