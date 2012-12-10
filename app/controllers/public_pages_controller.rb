@@ -3,6 +3,9 @@ class PublicPagesController < ApplicationController
 	before_filter :load_image
 
 	def home
+		if user_signed_in?
+			@extended_profiles = ExtendedProfile.find(:all).sample(6)
+		end
 	end
 
 	def load_image		
@@ -23,9 +26,10 @@ class PublicPagesController < ApplicationController
 	end
 
 	def attractive
-		ratings = Rating.order("total_positive_votes DESC").select("user_id").limit(10).to_a
-
-		# @extended_profiles = ExtendedProfile.where(:user_id => ratings.map {|i| i.user_id })
-		@extended_profiles = ExtendedProfile.find(ratings.map {|i| i.user_id })
+		ratings = Rating.order("total_positive_votes DESC").select("user_id")
+		@extended_profiles = []
+		ratings.each do |a|
+			@extended_profiles << ExtendedProfile.find(a.user_id)
+		end
 	end
 end

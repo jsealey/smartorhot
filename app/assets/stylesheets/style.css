@@ -16,8 +16,7 @@
 
 .home-left {
   float: left;
-  width: 570;
-  min-width: 370px;
+  width: 370px;
   vertical-align: top;
   padding-left: 15px;
   padding-right: 15px;
@@ -25,7 +24,8 @@
 
 .home-right {
   float: left;
-  width: 340px;
+  width: 60%;
+  min-width: 370px;
   padding-left: 15px;
   padding-right: 15px;
 }
