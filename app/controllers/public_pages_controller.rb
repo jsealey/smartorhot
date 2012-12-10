@@ -3,6 +3,9 @@ class PublicPagesController < ApplicationController
 	before_filter :load_image
 
 	def home
+		if user_signed_in?
+			@extended_profiles = ExtendedProfile.find(:all).sample(6)
+		end
 	end
 
 	def load_image		
