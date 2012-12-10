@@ -26,6 +26,6 @@ class PublicPagesController < ApplicationController
 		ratings = Rating.order("total_positive_votes DESC").select("user_id").limit(10).to_a
 
 		# @extended_profiles = ExtendedProfile.where(:user_id => ratings.map {|i| i.user_id })
-		@extended_profiles = ExtendedProfile.find(ratings.map {|i| i.user_id })
+		@extended_profiles = ExtendedProfile.find_all_by_user_id(ratings.map {|i| i.user_id })
 	end
 end
