@@ -23,3 +23,9 @@ production:
   access_token: uaswpe2uu3dwiys
   access_token_secret: u375qgmaqrrwt46
   user_id: 127847487
+
+  # app_key: n46weew42xy4yez
+  # app_secret: d1tk8v1ic4ghoes
+  # access_token: uaswpe2uu3dwiys
+  # access_token_secret: u375qgmaqrrwt46
+  # user_id: 127847487
