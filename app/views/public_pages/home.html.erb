@@ -17,13 +17,18 @@
 	<div class="row">
 	    <div class="twelve columns">
 	      <%= paginate @extended_profiles %>
-	      <div class="row">
-		  <!-- Thumbnails -->
-	        <% @extended_profiles.each do |a| %>
-				  <%= render "extended_profiles/user_photo", :user => a %>
-			<% end %>
-		  <!-- End Thumbnails -->
-	      </div>
+	      <% @counter = 0; %>
+	       <% @extended_profiles.each do |a| %>
+	          <% if @counter == 0 %>
+	            <div class="row">
+	          <% elsif @counter%3 == 0 %>
+	          	</div>
+	            <div class="row">
+	      	  <% end %>
+			  <%= render "extended_profiles/user_photo", :user => a %>
+	         <% @counter = @counter + 1 %>
+		   <% end %>
+		      </div>
 	      <%= paginate @extended_profiles %>
 	    </div>
 		<hr />
