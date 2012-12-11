@@ -49,7 +49,7 @@
     <%= form_for @extended_profile, :html => { :multipart => true } do |f| %>
       <%= f.hidden_field :user_id %>
 
-      <%= f.file_field :avatar %><br />*For best display, crop images to: 300x325px
+      <%= f.file_field :avatar %>
 
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
