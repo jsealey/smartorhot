@@ -32,7 +32,7 @@ class PublicPagesController < ApplicationController
 	end
 
 	def top
-		ratings = Rating.where("total_positive_votes IS NOT NULL").order("total_positive_votes DESC").select("user_id").limit(10).to_a
+		ratings = Rating.where("total_positive_votes IS NOT NULL").order("total_positive_votes DESC").select("user_id").limit(9).to_a
 		#@extended_profiles = ExtendedProfile.find_all_by_user_id(ratings.map {|i| i.user_id })
 
 		@extended_profiles = []
