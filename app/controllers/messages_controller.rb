@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
     if params[:reply_to]
       @reply_to = @user.received_messages.find(params[:reply_to])
       unless @reply_to.nil?
-        @message.to = @reply_to.sender.username
+        @message.to = @reply_to.recipient.username
         @message.subject = "Re: #{@reply_to.subject}"
         @message.body = "\n\n*Original message*\n\n #{@reply_to.body}"
       end

@@ -1,8 +1,13 @@
 <%= form_for @message, :url => user_messages_path(@user) do |f| %>
   <fieldset>
     <legend>Send Message</legend>
-    <%= f.hidden_field :recipient_id, :value => @recipient.id %>
-    <%= f.hidden_field :sender_id, :value => @user.id %>
+    <% if !@reply_to.nil? %>
+        <%= f.hidden_field :recipient_id, :value => @reply_to.sender_id %>
+        <%= f.hidden_field :sender_id, :value => @reply_to.recipient_id  %>
+    <% else %>
+        <%= f.hidden_field :recipient_id, :value => @recipient.id %>
+        <%= f.hidden_field :sender_id, :value => @user.id %>
+    <% end %>
 
     <%= f.label :subject %>
     <%= f.text_field :subject %>
