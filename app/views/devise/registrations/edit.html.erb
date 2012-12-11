@@ -43,7 +43,9 @@
   <% end %>  
   <fieldset>
     <legend>Edit Extended Profile</legend>
+    <% if ExtendedProfile.find_by_user_id(current_user.id) %>
     <%= render "extended_profiles/user_photo", :user => @extended_profile %>
+    <% end %>
     <%= form_for @extended_profile, :html => { :multipart => true } do |f| %>
       <%= f.hidden_field :user_id %>
 

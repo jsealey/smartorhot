@@ -53,7 +53,7 @@
               <script type="text/javascript">
                        ids.push(<%=user.id %> + 'F');
                        datas.push(new Array([[<%= hot_percent(user.user_id) %> , 100 - <%= hot_percent(user.user_id) %>],'Hotness']) );
-                       votes.push(<%= Rating.find_or_create_by_user_id(user.user_id).hot_count%>);
+                       votes.push(<%= Rating.find_or_create_by_user_id(user.user_id).hot_count %>);
               </script>
           </td>
         </tr>
