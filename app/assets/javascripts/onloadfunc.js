@@ -4,7 +4,8 @@ $(window).load(function() {
    $(".date").datepicker({
 	    changeMonth: true,
 	    changeYear: true,
-	    yearRange : 'c-90:c+0'
+	    yearRange : "1901:2012",
+	    dateFormat: 'yy-mm-dd'
    });
    for(var i=0; i < ids.length;i++){
    		var color = 'red';
