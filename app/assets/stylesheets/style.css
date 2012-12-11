@@ -67,7 +67,7 @@
 }
 
 .voting-arrows a {
-  margin: 0 .5em;
-  font-size: 2em;
+  /*margin: 0 .5em;*/
+  font-size: 20px;
   color: #222;
 }
