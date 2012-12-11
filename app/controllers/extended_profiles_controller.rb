@@ -84,11 +84,12 @@ class ExtendedProfilesController < ApplicationController
 
   def vote_smart
     voting_relationship = UserVote.find_or_create_by_candidate_user_id_and_user_id(params[:id], current_user.id)
-    if !voting_relationship.smart_vote?
+    if !voting_relationship.smart_vote? and !voting_relationship.dumb_vote?
       candidate = User.find_by_id(params[:id])
 
       if candidate
         voting_relationship.smart_vote = true
+        voting_relationship.dumb_vote = true
         voting_relationship.save() 
         rating = Rating.find_or_create_by_user_id(candidate.id)
         Rating.increment_counter(:smart_count, rating)
@@ -98,7 +99,7 @@ class ExtendedProfilesController < ApplicationController
         flash[:alert] = "User does not exist!"
       end
     else
-      flash[:alert] = "You have already cast smart vote!"
+      flash[:alert] = "You have already cast smartness vote!"
     end
 
     redirect_to (attractive_url)
@@ -106,11 +107,12 @@ class ExtendedProfilesController < ApplicationController
 
   def vote_dumb
     voting_relationship = UserVote.find_or_create_by_candidate_user_id_and_user_id(params[:id], current_user.id)
-    if !voting_relationship.dumb_vote?
+    if !voting_relationship.smart_vote? and !voting_relationship.dumb_vote?
       candidate = User.find_by_id(params[:id])
 
       if candidate 
         voting_relationship.dumb_vote = true
+        voting_relationship.smart_vote = true
         voting_relationship.save()
         rating = Rating.find_or_create_by_user_id(candidate.id)
         Rating.increment_counter(:dumb_count, rating)
@@ -119,7 +121,7 @@ class ExtendedProfilesController < ApplicationController
         flash[:alert] = "User does not exist!"
       end
     else
-      flash[:alert] = "You have already cast dumb vote!"      
+      flash[:alert] = "You have already cast smartness vote!"      
     end
 
     redirect_to (attractive_url)
@@ -127,11 +129,12 @@ class ExtendedProfilesController < ApplicationController
 
   def vote_hot
     voting_relationship = UserVote.find_or_create_by_candidate_user_id_and_user_id(params[:id], current_user.id)
-    if !voting_relationship.hot_vote?
+    if !voting_relationship.hot_vote? and !voting_relationship.ugly_vote?
       candidate = User.find_by_id(params[:id])
 
       if candidate 
         voting_relationship.hot_vote = true
+        voting_relationship.ugly_vote = true
         voting_relationship.save()
         rating = Rating.find_or_create_by_user_id(candidate.id)
         Rating.increment_counter(:hot_count, rating)
@@ -141,7 +144,7 @@ class ExtendedProfilesController < ApplicationController
         flash[:alert] = "User does not exist!"
       end
     else
-      flash[:alert] = "You have already cast hot vote!"
+      flash[:alert] = "You have already cast hotness vote!"
     end
 
     redirect_to (attractive_url)
@@ -149,11 +152,12 @@ class ExtendedProfilesController < ApplicationController
 
   def vote_ugly
     voting_relationship = UserVote.find_or_create_by_candidate_user_id_and_user_id(params[:id], current_user.id)
-    if !voting_relationship.ugly_vote?
+    if !voting_relationship.hot_vote? and !voting_relationship.ugly_vote?
       candidate = User.find_by_id(params[:id])
 
       if candidate 
         voting_relationship.ugly_vote = true
+        voting_relationship.hot_vote = true
         voting_relationship.save()
         rating = Rating.find_or_create_by_user_id(candidate.id)
         Rating.increment_counter(:ugly_count, rating)
@@ -162,7 +166,7 @@ class ExtendedProfilesController < ApplicationController
         flash[:alert] = "User does not exist!"
       end
     else
-      flash[:alert] = "You have already cast ugly vote!"
+      flash[:alert] = "You have already cast hotness vote!"
     end
     redirect_to (attractive_url)
   end
