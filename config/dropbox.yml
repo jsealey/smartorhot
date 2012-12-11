@@ -1,0 +1,25 @@
+# app_key: <%= ENV["DROPBOX_APP_KEY"] %>
+# app_secret: <%= ENV["DROPBOX_APP_SECRET"] %>
+# access_token: <%= ENV["DROPBOX_ACCESS_TOKEN"] %>
+# access_token_secret: <%= ENV["DROPBOX_ACCESS_TOKEN_SECRET"] %>
+# user_id: <%= ENV["DROPBOX_USER_ID"] %>
+development:
+  app_key: n46weew42xy4yez
+  app_secret: d1tk8v1ic4ghoes
+  access_token: uaswpe2uu3dwiys
+  access_token_secret: u375qgmaqrrwt46
+  user_id: 127847487
+
+test:
+  app_key: n46weew42xy4yez
+  app_secret: d1tk8v1ic4ghoes
+  access_token: uaswpe2uu3dwiys
+  access_token_secret: u375qgmaqrrwt46
+  user_id: 127847487
+
+production:
+  app_key: n46weew42xy4yez
+  app_secret: d1tk8v1ic4ghoes
+  access_token: uaswpe2uu3dwiys
+  access_token_secret: u375qgmaqrrwt46
+  user_id: 127847487

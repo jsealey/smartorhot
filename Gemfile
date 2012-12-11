@@ -12,6 +12,8 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'paperclip-dropbox'
+
 # Flickr support
 gem 'flickraw'
 
