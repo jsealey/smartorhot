@@ -102,7 +102,7 @@ class ExtendedProfilesController < ApplicationController
       flash[:alert] = "You have already cast smartness vote!"
     end
 
-    redirect_to (attractive_url)
+    redirect_to (top_url)
   end
 
   def vote_dumb
@@ -124,7 +124,7 @@ class ExtendedProfilesController < ApplicationController
       flash[:alert] = "You have already cast smartness vote!"      
     end
 
-    redirect_to (attractive_url)
+    redirect_to (top_url)
   end
 
   def vote_hot
@@ -147,7 +147,7 @@ class ExtendedProfilesController < ApplicationController
       flash[:alert] = "You have already cast hotness vote!"
     end
 
-    redirect_to (attractive_url)
+    redirect_to (top_url)
   end
 
   def vote_ugly
@@ -168,7 +168,7 @@ class ExtendedProfilesController < ApplicationController
     else
       flash[:alert] = "You have already cast hotness vote!"
     end
-    redirect_to (attractive_url)
+    redirect_to (top_url)
   end
 
 end
