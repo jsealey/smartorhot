@@ -43,11 +43,11 @@
   <% end %>  
   <fieldset>
     <legend>Edit Extended Profile</legend>
-    <%#= link_to image_tag(@extended_profile.avatar.url(:medium)), user_path(current_user) %>
+    <%= link_to image_tag(@extended_profile.avatar.url(:medium)), user_path(current_user) %>
     <%= form_for @extended_profile, :html => { :multipart => true } do |f| %>
       <%= f.hidden_field :user_id %>
 
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar %><br />*For best display, crop images to: 300x325px
 
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
