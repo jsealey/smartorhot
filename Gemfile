@@ -38,8 +38,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'calendar_date_select', :git => 'git://github.com/paneq/calendar_date_select.git'
-
 gem 'kaminari'
 
 # To use ActiveModel has_secure_password
