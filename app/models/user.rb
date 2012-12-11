@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_private_messages
   has_one :extended_profile, :dependent => :destroy
-  has_one :attractiveness, :dependent => :destroy
+  has_one :rating, :dependent => :destroy
   has_many :user_votes, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
