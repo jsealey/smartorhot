@@ -61,7 +61,7 @@
       <%= f.text_field :phone_number %>
 
       <%= f.label :date_of_birth %>
-      <%= f.date_select :date_of_birth, :start_year => 1930, :end_year => 2012 %>
+      <%= f.text_field :date_of_birth, :class => 'date' %>
 
       <%= f.label :sex %>
       <%= f.select :sex, {"Male" => true, "Female" => false} %>

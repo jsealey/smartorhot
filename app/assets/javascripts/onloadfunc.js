@@ -1,10 +1,14 @@
 $(window).load(function() {
    $('#featured').orbit();
    $('#featured').show();
+   $(".date").datepicker({
+	    changeMonth: true,
+	    changeYear: true,
+	    yearRange : 'c-90:c+0'
+   });
    for(var i=0; i < ids.length;i++){
    		var color = 'red';
    		if(datas[i][0][1] == 'Smartness') color = 'blue';
-   		//alert(datas[i][0][0]);
 		$('#' + ids[i] + 'simpleGraph').jqBarGraph({ 
 	      data: datas[i], // array of data for your graph
 	      colors: [color,'#EEEEEE'],
