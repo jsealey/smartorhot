@@ -12,14 +12,14 @@
                 </td>
                 <td>
                   <% if current_user and user.user_id != current_user.id %>
-                    <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
+                    <%= link_to "&#x25B2;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
                   <% end %>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td style="background-color: white">
                   <% if current_user and user.user_id != current_user.id %>
-                    <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
+                    <%= link_to "&#x25BC;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
                   <% end %>
                 </td>
               </tr>
@@ -38,14 +38,14 @@
                 </td>
                 <td>
                 <% if current_user and user.user_id != current_user.id %>
-                  <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
+                  <%= link_to "&#x25B2;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
                 <% end %>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td style="background-color: white">
                   <% if current_user and user.user_id != current_user.id %>
-                  <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
+                  <%= link_to "&#x25BC;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
                   <% end %>
                 </td>
               </tr>
