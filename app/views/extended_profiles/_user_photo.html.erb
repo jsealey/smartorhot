@@ -1,6 +1,6 @@
 <% if user and (not user.avatar.to_s.index("missing.png")) %>
   <div class="four columns photo" align=center>
-    <%= link_to image_tag(user.avatar.url(), :style => "width:300px;height:325px;"), user_path(user.user_id) %>
+    <%= link_to image_tag(user.avatar.url(:medium), :style => "width:300px;height:300px;"), user_path(user.user_id) %>
     <div class="panel">
       <table style="margin: 0;">
         <tr>
