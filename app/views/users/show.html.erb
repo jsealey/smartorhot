@@ -1,6 +1,6 @@
 <div class="row">
       <div class="five columns">
-        <% if ExtendedProfile.find_by_user_id(@user.id) %>
+        <% if ExtendedProfile.find_by_user_id(@user.id).avatar? %>
         <%= render "extended_profiles/user_photo", :user => @their_extended_profile %>
         <% end %>
         <div class="panel" style="width:303px">
