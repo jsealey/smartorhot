@@ -1,34 +1,40 @@
-
-
 <% if not user_signed_in? %>
-	<article class="home-content">
-		<section class="home-left">
-			<div id="featured" style="width:100%;" align=center>
-				<% ExtendedProfile.find(:all).sample(6).each do |user| %>
-					<%= image_tag user.avatar.url(), :style=>"width:100%;height:400px;" %>
-				<% end %>
+	<div class="row twelve columns">
+			<div class="five columns">
+				<div style="width:300px;height:325px;" align=center>
+					<div id="featured" style="display:none;" align=center>
+						<% @extended_profiles.each do |user| %>
+							<%= image_tag(user.avatar.url(), :style => "width:300px;height:325px;") %>
+						<% end %>
+					</div>
+				</div>
 			</div>
-		</section>
-		<section class="home-right">
-			<%= render "devise/registrations/new" %>
-		</section>
-	</article>
+			<div class="seven columns">
+				<%= render "devise/registrations/new" %>
+			</div>
+		</div>
+	</div>
 
 <% else %>
 
 	<div class="row">
 	    <div class="twelve columns">
-	        <div class="twelve columns">
-	          <div class="row">
-	    	  <!-- Thumbnails -->
-	            <% @extended_profiles.each do |a| %>
-      			  <%= render "extended_profiles/user_photo", :user => a %>
-      			<% end %>
-	    	  <!-- End Thumbnails -->
-	          </div>
-	        </div>
-	    <hr />
+	      <%= paginate @extended_profiles %>
+	      <% @counter = 0; %>
+	       <% @extended_profiles.each do |a| %>
+	          <% if @counter == 0 %>
+	            <div class="row">
+	          <% elsif @counter%3 == 0 %>
+	          	</div>
+	            <div class="row">
+	      	  <% end %>
+			  <%= render "extended_profiles/user_photo", :user => a %>
+	         <% @counter = @counter + 1 %>
+		   <% end %>
+		      </div>
+	      <%= paginate @extended_profiles %>
 	    </div>
+		<hr />
     </div>
 
 <% end %>

@@ -67,7 +67,16 @@
 }
 
 .voting-arrows a {
-  margin: 0 .5em;
-  font-size: 2em;
+  /*margin: 0 .5em;*/
+  font-size: 20px;
   color: #222;
+}
+.photo {
+  width: 303px !important;
+  min-width: 303px;
+  max-width: 303px;
+  float:left;
+}
+.panel {
+  padding: 10px;
 }

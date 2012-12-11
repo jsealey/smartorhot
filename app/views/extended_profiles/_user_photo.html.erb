@@ -1,32 +1,63 @@
-<% if not user.avatar.to_s.index("missing.png") %>
-  <div class="four mobile-two columns" align=center>
-    <%= link_to image_tag(user.avatar.url(), :style => "width:325px;height:300px;"), user_path(user.user_id) %>
-    <div class="panel" align=center>
-      <h5>
-        <div class="progress seven" style="display:inline-block;" align=left>
-          <span class="meter" style="width:<%= smart_percent(user.user_id) %>%;">Smartness(<%= Rating.find_or_create_by_user_id(user.user_id).smart_count%>)</span>
-        </div>
-
-        <% if current_user and user.user_id != current_user.id %>
-          <div class="voting-arrows" align=left>
-            <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
-            <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
-          </div>
-        <% end %>
-      </h5>
-
-      <h5>
-        <div class="progress seven alert" style="display:inline-block;" align=left>
-          <span class="meter" style="width:<%= hot_percent(user.user_id) %>%;">Hotness(<%=Rating.find_or_create_by_user_id(user.user_id).hot_count%>)</span>
-        </div>
-
-        <% if current_user and user.user_id != current_user.id %>
-          <div class="voting-arrows" align=left>
-            <%= link_to "&blacktriangle;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
-            <%= link_to "&blacktriangledown;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
-          </div>
-        <% end %>
-      </h5>
+<% if user and (not user.avatar.to_s.index("missing.png")) %>
+  <div class="four columns photo" align=center>
+    <%= link_to image_tag(user.avatar.url(), :style => "width:300px;height:325px;"), user_path(user.user_id) %>
+    <div class="panel">
+      <table style="margin: 0;">
+        <tr>
+          <td>
+            <table style="margin: 0;">
+               <tr>
+                <td rowspan=2>
+                  <div id="<%=user.id %>simpleGraph"></div>
+                </td>
+                <td>
+                  <% if current_user and user.user_id != current_user.id %>
+                    <%= link_to "&#x25B2;".html_safe, {:controller => "extended_profiles", :action => "vote_smart", :id => user.user_id}, :title => "Vote Up" %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: white">
+                  <% if current_user and user.user_id != current_user.id %>
+                    <%= link_to "&#x25BC;".html_safe, {:controller => "extended_profiles", :action => "vote_dumb", :id => user.user_id}, :title => "Vote Down" %>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+            <script type="text/javascript">
+                     ids.push(<%=user.id %>);
+                     datas.push(new Array([[<%= smart_percent(user.user_id) %> , 100 - <%= smart_percent(user.user_id) %>],'Smartness']) );
+                     votes.push(<%= Rating.find_or_create_by_user_id(user.user_id).smart_count%>);
+            </script>
+          </td>
+          <td>
+            <table style="margin: 0;">
+              <tr>
+                <td rowspan=2>
+                  <div id="<%=user.id %>FsimpleGraph"></div>
+                </td>
+                <td>
+                <% if current_user and user.user_id != current_user.id %>
+                  <%= link_to "&#x25B2;".html_safe, {:controller => "extended_profiles", :action => "vote_hot", :id => user.user_id}, :title => "Vote Up" %>
+                <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: white">
+                  <% if current_user and user.user_id != current_user.id %>
+                  <%= link_to "&#x25BC;".html_safe, {:controller => "extended_profiles", :action => "vote_ugly", :id => user.user_id}, :title => "Vote Down" %>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+              <script type="text/javascript">
+                       ids.push(<%=user.id %> + 'F');
+                       datas.push(new Array([[<%= hot_percent(user.user_id) %> , 100 - <%= hot_percent(user.user_id) %>],'Hotness']) );
+                       votes.push(<%= Rating.find_or_create_by_user_id(user.user_id).hot_count %>);
+              </script>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 <% end %>

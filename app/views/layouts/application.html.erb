@@ -17,7 +17,11 @@
   
 	<!-- Included CSS Files -->
 	<%= stylesheet_link_tag    "application" %>
-	
+  <script type="text/javascript">
+  var ids = [];
+  var datas = [];
+  var votes = [];
+  </script>
 	<!-- Included JS Files  -->
 	<%= javascript_include_tag "application" %>
   
@@ -46,7 +50,7 @@
           <% else %>
           <%= nav_link 'Home', root_path %>
           <% end %>
-          <%= nav_link "Highest Rated", attractive_path %>
+          <%= nav_link "Highest Rated", top_path() %>
           <li class="divider hide-for-small"></li>
         </ul>
 
@@ -54,10 +58,15 @@
         <ul class="right">
           <li class="divider show-for-medium-and-up"></li>
           <% if user_signed_in? %>
+          <% if current_user.unread_messages? %>
+          <%= nav_link "Inbox(#{current_user.unread_message_count})", user_messages_path(current_user) %>
+          <% else %>
+          <%= nav_link 'Inbox', user_messages_path(current_user) %>
+          <% end %>
           <li class="has-dropdown">
             <%= link_to 'My Account', user_path(current_user) %>
             <ul class="dropdown">
-              <%= nav_link 'Inbox', user_messages_path(current_user) %>
+              <%= nav_link 'View', user_path(current_user) %>
               <%= nav_link 'Edit', edit_user_registration_path %>
               <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
             </ul>

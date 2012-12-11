@@ -14,7 +14,7 @@ Smartorhot::Application.routes.draw do
          end
        end
   resources :photos
-  match "attractive" => "public_pages#attractive"
+  match "top" => "public_pages#top"
 	# match "show" => "photos#show",:as => :photo
 	root :to => "public_pages#home"
 end

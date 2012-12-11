@@ -1,0 +1,19 @@
+<div class="row">
+  <!-- Thumbnails -->
+  <div class="twelve columns">
+			   <% @counter = 0; %>
+         <% @extended_profiles.each do |a| %>
+            <% if @counter == 0 %>
+              <div class="row">
+            <% elsif @counter%3 == 0 %>
+              </div>
+              <div class="row">
+            <% end %>
+        <%= render "extended_profiles/user_photo", :user => a %>
+           <% @counter = @counter + 1 %>
+       <% end %>
+          </div>
+  </div>
+  <!-- End Thumbnails -->
+  <hr />
+</div>

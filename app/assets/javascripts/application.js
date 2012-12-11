@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-1.7.1.min
 //= require jquery.dropmenu-1.1.4
+//= require jqBarGraph.1.1.min
 //= require foundation
 //= require foundation/app
 //= require onloadfunc
