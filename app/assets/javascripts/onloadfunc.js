@@ -4,7 +4,7 @@ $(window).load(function() {
    for(var i=0; i < ids.length;i++){
    		var color = 'red';
    		if(datas[i][0][1] == 'Smartness') color = 'blue';
-
+   		//alert(datas[i][0][0]);
 		$('#' + ids[i] + 'simpleGraph').jqBarGraph({ 
 	      data: datas[i], // array of data for your graph
 	      colors: [color,'#EEEEEE'],
@@ -39,6 +39,11 @@ $(window).load(function() {
 		$('#' + ids[i] + 'simpleGraph').css('height',80);
 		var subBars = jQuery.makeArray($('.subBars' + ids[i] + 'simpleGraph'));
 		$(subBars[0]).html('');
-		$(subBars[1]).html( votes[i] );
+		$(subBars[1]).html( votes[i] )
+
+		$('#graphFieldBar0' + ids[i] + 'simpleGraph')
+					 .attr('title',datas[i][0][0][0] + '%')
+					 .addClass('has-tip tip-right')
+					 .attr('data-width',40);
 	}
 });
