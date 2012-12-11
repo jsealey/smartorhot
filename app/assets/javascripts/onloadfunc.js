@@ -1,5 +1,6 @@
 $(window).load(function() {
    $('#featured').orbit();
+   $('#featured').show();
    for(var i=0; i < ids.length;i++){
    		var color = 'red';
    		if(datas[i][0][1] == 'Smartness') color = 'blue';
