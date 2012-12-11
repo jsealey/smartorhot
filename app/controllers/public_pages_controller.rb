@@ -25,7 +25,7 @@ class PublicPagesController < ApplicationController
 		@tags = info.tags.map {|t| t.raw}
 	end
 
-	def attractive
+	def top
 		ratings = Rating.order("total_positive_votes DESC").select("user_id").limit(10).to_a
 		#@extended_profiles = ExtendedProfile.find_all_by_user_id(ratings.map {|i| i.user_id })
 
@@ -33,6 +33,6 @@ class PublicPagesController < ApplicationController
 		ratings.each do |a|
 			@extended_profiles << ExtendedProfile.find(a.user_id)
 		end
-		
+
 	end
 end
