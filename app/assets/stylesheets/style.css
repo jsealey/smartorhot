@@ -71,3 +71,6 @@
   font-size: 20px;
   color: #222;
 }
+.photo {
+  min-width: 303px;
+}
