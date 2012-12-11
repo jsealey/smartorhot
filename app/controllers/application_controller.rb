@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :load_globals
-  helper_method :has_voted,:smart_percent, :hot_percent
+  helper_method :has_voted,:smart_percent, :hot_percent, :age
 
   def load_globals
   	if user_signed_in?
@@ -36,6 +36,12 @@ class ApplicationController < ActionController::Base
     else
       return 0
     end
+  end
+
+
+  def age(birthday)
+    now = Time.now.utc.to_date
+    now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
   end
 
 end

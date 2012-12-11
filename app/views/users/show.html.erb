@@ -1,16 +1,14 @@
-<div class="row">
+<!-- <div class="row">
     <div class="twelve columns">
 
       <div class="row">
 
-  <!-- Side Bar -->
 
         <div class="four mobile-four columns">
            <%= render "extended_profiles/user_photo", :user => @their_extended_profile %>
           <div class="hide-for-small panel">
-            <h3><%= @their_extended_profile[:first_name] %>
-            <%= @their_extended_profile[:last_name] %></h3>
             <h5 class="subheader">
+              <%= @user[:email] %>
             </h5>
           </div>
 
@@ -18,10 +16,7 @@
 
         </div>
 
-    <!-- End Side Bar -->
 
-
-    <!-- Thumbnails -->
 
         <div class="eight columns">
           <div class="row">
@@ -80,7 +75,6 @@
               </div>
             </div>
 
-    <!-- End Thumbnails -->
 
           </div>
         </div>
@@ -89,4 +83,32 @@
     <hr />
 
     </div>
+  </div> -->
+
+
+  
+<div class="row">
+      <div class="five columns">
+        <%= render "extended_profiles/user_photo", :user => @their_extended_profile %>
+        <div class="panel" style="width:303px">
+        <h5 class="subheader">
+          name: <%= @their_extended_profile[:first_name] %> <%= @their_extended_profile[:last_name] %><br />
+          age: <%= age(@their_extended_profile[:date_of_birth]) %><br />
+          birthday: <%= @their_extended_profile[:date_of_birth] %><br />
+          phone:  <%= @their_extended_profile[:phone_number] %><br />
+          email: <%= @user[:email] %><br />
+        </h5>
+        <%= link_to '<div class="panel callout radius" align="center"><h6>Send Message</h6></div>'.html_safe, new_user_message_path(@user)%>
+        </div>
+      </div>
+    
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="seven columns">
+      <h3>About <%= @their_extended_profile[:first_name] %></h3>
+      <% if @their_extended_profile[:about] %>
+      <p><%= @their_extended_profile[:about] %></p>
+      <% end %>
+    </div>
   </div>
+
