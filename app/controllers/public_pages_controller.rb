@@ -9,7 +9,7 @@ class PublicPagesController < ApplicationController
 			ratings = Rating.where("total_positive_votes IS NOT NULL").order("total_positive_votes DESC").select("user_id").limit(6).to_a
 			@extended_profiles = []
 				ratings.each do |a|
-			@extended_profiles << ExtendedProfile.find_by_user_id(a.user_id).where("avatar IS NOT NULL")
+			@extended_profiles << ExtendedProfile.find_by_user_id(a.user_id)
 		end
 		end
 	end
@@ -37,7 +37,7 @@ class PublicPagesController < ApplicationController
 
 		@extended_profiles = []
 		ratings.each do |a|
-			@extended_profiles << ExtendedProfile.find_by_user_id(a.user_id).where("avatar IS NOT NULL")
+			@extended_profiles << ExtendedProfile.find_by_user_id(a.user_id)
 		end
 
 	end
