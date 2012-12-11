@@ -6,10 +6,9 @@
   <!-- Side Bar -->
 
         <div class="four mobile-four columns">
-
-          <%=render "extended_profiles/user_photo", :user => @their_extended_profile %>
+           <%= render "extended_profiles/user_photo", :user => @their_extended_profile %>
           <div class="hide-for-small panel">
-            <h3><%= @their_extended_profile[:first_name] %> 
+            <h3><%= @their_extended_profile[:first_name] %>
             <%= @their_extended_profile[:last_name] %></h3>
             <h5 class="subheader">
             </h5>
