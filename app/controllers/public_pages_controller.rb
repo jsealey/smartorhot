@@ -4,7 +4,13 @@ class PublicPagesController < ApplicationController
 
 	def home
 		if user_signed_in?
-			@extended_profiles = ExtendedProfile.find(:all).sample(6)
+			@extended_profiles = ExtendedProfile.page(params[:page]).per(6)
+		else
+			ratings = Rating.where("total_positive_votes IS NOT NULL").order("total_positive_votes DESC").select("user_id").limit(6).to_a
+			@extended_profiles = []
+				ratings.each do |a|
+			@extended_profiles << ExtendedProfile.find_or_create_by_user_id(a.user_id)
+		end
 		end
 	end
 
