@@ -31,7 +31,7 @@ class PublicPagesController < ApplicationController
 
 		@extended_profiles = []
 		ratings.each do |a|
-			@extended_profiles << ExtendedProfile.find_or_create(a.user_id)
+			@extended_profiles << ExtendedProfile.find_or_create_by_user_id(a.user_id)
 		end
 
 	end
